@@ -1,0 +1,16 @@
+{
+    "version": "1.0-shim-only",
+    "description": "This is a shim-only manifest for BusyBox",
+    "homepage": "https://frippery.org/busybox",
+    "license": "GPL-2.0-only",
+    "url": "https://raw.githubusercontent.com/x-magic/scoop-bucket/master/misc/dummy.zip",
+    "hash": "e2d7a0b4e3d0a3484e809fc41bcac308d4962a8cdf4a2df1eb10e3f48ac9d95b",
+    "depends": "x-magic/busybox",
+    "bin": [
+        [
+            "..\\..\\busybox\\current\\busybox.exe",
+            "clear",
+            "clear"
+        ]
+    ]
+}
