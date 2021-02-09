@@ -8,7 +8,7 @@
     "depends": "busybox-standalone",
     "bin": [
         [
-            "..\\..\\busybox\\current\\busybox.exe",
+            "..\\..\\busybox-standalone\\current\\busybox.exe",
             "seq",
             "seq"
         ]
