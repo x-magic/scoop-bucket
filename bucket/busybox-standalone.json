@@ -1,6 +1,6 @@
 {
     "version": "3812-g12e14ebba",
-    "description": "BusyBox is a single binary that contains many common Unix tools",
+    "description": "BusyBox is a single binary that contains many common Unix tools. This is a standalone version which will not create aliases. Please install busybox-<command> to add desired aliases",
     "homepage": "https://frippery.org/busybox",
     "license": "GPL-2.0-only",
     "architecture": {
