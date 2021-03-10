@@ -14,3 +14,6 @@ You can add this bucket to scoop using
 ```
 scoop bucket add x-magic https://github.com/x-magic/scoop-bucket.git
 ```
+
+## Why are you doing this? 
+Because it's [head-bangingly](https://github.com/lukesampson/scoop-extras/pull/5616) [frustrating](https://github.com/lukesampson/scoop-extras/pull/5637), [borderline](https://github.com/lukesampson/scoop-extras/pull/5638) [impossible](https://github.com/lukesampson/scoop-extras/pull/5765) to contribute to the official bucket. I'm out 🖐🎤
