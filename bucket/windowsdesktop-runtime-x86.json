@@ -9,7 +9,7 @@
     "notes": "You can now remove this installer with 'scoop uninstall windowsdesktop-runtime'",
     "architecture": {
         "32bit": {
-            "url": "https://dotnetcli.blob.core.windows.net/dotnet/WindowsDesktop/5.0.4/windowsdesktop-runtime-5.0.4-win-x86.exe",
+            "url": "https://download.visualstudio.microsoft.com/download/pr/0c5c56a4-8b34-4361-8af9-482c788b2bcf/d734b200547c8c367eb45ebbd69c4698/windowsdesktop-runtime-5.0.4-win-x86.exe",
             "hash": "sha512:b0bd45e1d234ad74e770a7e1acea527f9e84af39da2cdecc6b4ab5c3f855b7f90d5ce7114f1500a9f9163de125cb87a6e4eb99a35d03ba5369db163cce8e3a87"
         }
     },
