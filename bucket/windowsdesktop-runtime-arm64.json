@@ -6,7 +6,7 @@
         "identifier": "Freeware",
         "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx"
     },
-    "notes": "You can now remove this installer with 'scoop uninstall windowsdesktop-runtime'",
+    "notes": "You can now remove this installer with 'scoop uninstall windowsdesktop-runtime-arm64'",
     "architecture": {
         "arm64": {
             "url": "https://download.visualstudio.microsoft.com/download/pr/9972cac4-3605-46f0-933f-7e62a19bf6c3/64c60574923619b1aa3a4eb711d8722c/windowsdesktop-runtime-5.0.4-win-arm64.exe",
