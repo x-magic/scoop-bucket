@@ -1,0 +1,35 @@
+{
+    "version": "3.1.13",
+    "description": "Microsoft .NET Core Desktop Runtime LTS 3.1.x",
+    "homepage": "https://dotnet.microsoft.com/download/dotnet-core",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx"
+    },
+    "notes": "You can now remove this installer with 'scoop uninstall windowsdesktop-runtime-lts'",
+    "architecture": {
+        "32bit": {
+            "url": "https://download.visualstudio.microsoft.com/download/pr/c39e684e-f804-4e5d-b2ca-eaf4ac49d7b3/fb155e336f2a2bea7efbb3161822296e/windowsdesktop-runtime-3.1.13-win-x86.exe",
+            "hash": "sha512:987cc4c2878228e95c89462c1dea53793dc9dccea5cfc7db4520a676a291a6cfcf1761b5dc15e5ac36d962d3c7c73fcd4c1ec9a54de023bf31066767a4056128"
+        }
+    },
+    "pre_install": "if (!(is_admin)) { error 'Admin privileges are required.'; break }",
+    "installer": {
+        "script": "Invoke-ExternalCommand \"$dir\\$fname\" -ArgumentList '/install', '/quiet', '/norestart' -RunAs | Out-Null"
+    },
+    "checkver": {
+        "url": "https://dotnetcli.azureedge.net/dotnet/WindowsDesktop/LTS/latest.version",
+        "regex": "([\\d.]+)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "32bit": {
+                "url": "https://dotnetcli.azureedge.net/dotnet/Runtime/$version/windowsdesktop-runtime-$version-win-x86.exe",
+                "hash": {
+                    "url": "https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-desktop-$version-windows-x86-installer",
+                    "regex": "value=\"$sha512\""
+                }
+            }
+        }
+    }
+}
