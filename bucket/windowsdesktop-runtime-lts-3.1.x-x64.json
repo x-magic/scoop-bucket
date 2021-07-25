@@ -1,5 +1,5 @@
 {
-    "version": "3.1.16",
+    "version": "3.1.17",
     "description": "Microsoft .NET Core Desktop Runtime LTS 3.1.x",
     "homepage": "https://dotnet.microsoft.com/download/dotnet-core",
     "license": {
@@ -9,8 +9,8 @@
     "notes": "You can now remove this installer with 'scoop uninstall windowsdesktop-runtime-lts-3.1.x-x64'",
     "architecture": {
         "64bit": {
-            "url": "https://download.visualstudio.microsoft.com/download/pr/7cea63ad-1e76-41f0-a54a-eacb48fec749/87c339835cd7647c0fee3f14820cd909/windowsdesktop-runtime-3.1.16-win-x64.exe",
-            "hash": "sha512:fba9388e88ddb7399cd5f870146377084c0a790bdea23604176e1a45156d76797c3af036cc3420e27ecf34d23d59896eaa90d511d5f36441cbc957b58ba6be7c"
+            "url": "https://download.visualstudio.microsoft.com/download/pr/444b48db-df03-4c14-b98d-09fec51b34d7/5bf38b8cde40d1e6e92c2495a89a4793/windowsdesktop-runtime-3.1.17-win-x64.exe",
+            "hash": "sha512:3601db1095fe0b7ce65a8e864851f70e6bfa99fb6b99fb6de10cf5c9a9bfe07c9ed4ec025ef719fec54bdea25691427fa2f3eb7b488fb5512d8f4e870839abf4"
         }
     },
     "pre_install": "if (!(is_admin)) { error 'Admin privileges are required.'; break }",
