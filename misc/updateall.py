@@ -6,6 +6,7 @@ updaters = [
     'busybox',
     'windowsdesktop-runtime',
     'windowsdesktop-runtime-lts-3.1.x',
+    'windowsdesktop-runtime-lts-6.0.x',
     'diskgen'
 ]
 
