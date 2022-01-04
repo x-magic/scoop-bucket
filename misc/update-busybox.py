@@ -27,11 +27,16 @@ with urllib.request.urlopen(upstream) as url:
         target = open(manifest_path, 'w')
         target.write(json.dumps(data, indent=4, sort_keys=False) + "\n")
         target.close()
+                
+        # Write commit messages
+        message = "busybox-standalone: Update to version {0}".format(version_current)
+        commit_message = open('.commit_messages', 'a')
+        commit_message.write(message + "\n")
 
         # Count existing shim manifests
         existing_shims = []
         for shim in glob.glob(os.path.join(bucket_path, 'busybox-*.json')):
-            shim_name = shim.replace(bucket_path, '').replace('\\busybox-', '').replace('.json', '')
+            shim_name = shim.replace(bucket_path, '').replace('/', '').replace('\\', '').replace('busybox-', '').replace('.json', '')
             if shim_name != 'standalone':
                 existing_shims.append(shim_name)
 
@@ -44,13 +49,19 @@ with urllib.request.urlopen(upstream) as url:
                 else:  # Write generated template to file
                     target = open(os.path.join(bucket_path, "busybox-{0}.json".format(shim_name)), 'w')
                     target.write(open(shim_template_path, 'r').read().replace('_COMMAND_', shim_name))
-                    print("New shim \"{0}\" is created. Filename: \'busybox-{0}.json\'".format(shim_name))
+                    shim_message = "New shim \"{0}\" is created. Filename: \'busybox-{0}.json\'".format(shim_name)
+                    print(shim_message)
                     target.close()
+                    commit_message.write("  - " + shim_message + "\n")
 
         for outdated_shim in existing_shims:
             shim_path = os.path.join(bucket_path, "busybox-{0}.json".format(outdated_shim))
             if os.path.exists(shim_path):
                 os.remove(shim_path)
-                print("Old shim \"{0}\" is removed. Filename: \'busybox-{0}.json\'".format(outdated_shim))
+                shim_message = "Old shim \"{0}\" is removed. Filename: \'busybox-{0}.json\'".format(outdated_shim)
+                print(shim_message)
+                commit_message.write("  - " + shim_message + "\n")
+
+        commit_message.close()
     else:
         print("No new version detected. Will not update the manifest. ")

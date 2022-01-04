@@ -1,0 +1,35 @@
+name: Update all buckets
+on:
+  schedule:
+    - cron: 0 0 * * 3
+jobs:
+  update:
+    name: Execute update scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Setup Python Environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Execute update script
+        run: python misc/updateall.py
+      - name: "Check if there is any change"
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "misc/.commit_messages"
+      - name: Commit changes (if there is any)
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: |
+          git config --global user.name actions-user
+          git config --global user.email "actions@github.com"
+          git commit -a -F misc/.commit_messages
+          git push
+        env:
+          REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+          username: github-actions

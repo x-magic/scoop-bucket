@@ -33,5 +33,11 @@ for arch in archs:
                 target = open(arch_manifest_path, "w")
                 target.write(json.dumps(manifest, indent=4, sort_keys=False) + "\n")
                 target.close()
+                
+                # Write commit messages
+                message = "windowsdesktop-runtime{0}: Update to version {1}".format(arch, version_current)
+                commit_message = open('.commit_messages', 'a')
+                commit_message.write(message + "\n")
+                commit_message.close()
         else:
             print("No new version detected for the {0} arch. Will not update the manifest. ".format(arch))
