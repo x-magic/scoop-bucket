@@ -1,5 +1,5 @@
 {
-    "version": "6.0.4",
+    "version": "6.0.5",
     "description": "Microsoft .NET Core Desktop Runtime LTS 6.0.x",
     "homepage": "https://dotnet.microsoft.com/download/dotnet-core",
     "license": {
@@ -9,8 +9,8 @@
     "notes": "You can now remove this installer with 'scoop uninstall windowsdesktop-runtime-lts-6.0.x-x86'",
     "architecture": {
         "32bit": {
-            "url": "https://download.visualstudio.microsoft.com/download/pr/05b30243-5cd2-48c3-a9bb-6ac83d7d481b/03a25aecb5cf4ba53c8b9cf5194e3c86/windowsdesktop-runtime-6.0.4-win-x86.exe",
-            "hash": "sha512:e3e52096d09782b35d6dfe15c8ed8eed978d7def198696f2e6f3ce7c83e7526b5e74955de2ca68ae94bbbd6c1d01d4faf2f4a5252c1e7c99b0746e2716a0a8e5"
+            "url": "https://download.visualstudio.microsoft.com/download/pr/68b75eff-3cee-41e0-b993-88a3e063eaee/3aa76cd11da04e2126a3fb7a6ee16e23/windowsdesktop-runtime-6.0.5-win-x86.exe",
+            "hash": "sha512:c62dfcd8f51ba6aa8d7fcf963aeb3e0756e06c2b106587b4cb0820d06ecf9dadb43555f94986941d1bd8e9d8a61fe2b2bb58fce48f9ecfd0783c0763c40babcb"
         }
     },
     "pre_install": "if (!(is_admin)) { error 'Admin privileges are required.'; break }",
