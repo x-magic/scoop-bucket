@@ -9,5 +9,5 @@
             "hash": "24222f681219d3814880d0e3fab2165c1a88628d1dbd89ccbfadd4a853dd8ac7"
         }
     },
-    "bin": "iperf3.12_64bit\\iperf3.exe"
+    "bin": "iperf3.12_64\\iperf3.exe"
 }
