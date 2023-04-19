@@ -33,10 +33,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://download.eassos.cn/DG$cleanVersion_x64.zip"
+                "url": "https://download2.eassos.cn/DG$cleanVersion_x64.zip"
             },
             "32bit": {
-                "url": "https://download.eassos.cn/DG$cleanVersion_x86.zip"
+                "url": "https://download2.eassos.cn/DG$cleanVersion_x86.zip"
             }
         }
     }
