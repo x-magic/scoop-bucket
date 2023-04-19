@@ -21,6 +21,7 @@ with urllib.request.urlopen(version_check_url) as url:
         
         for arch in archs:
             download_url = manifest['autoupdate']['architecture'][arch]['url'].replace('$cleanVersion', version_current.replace('.', ''))
+            print("-- Downloading: {0}".format(download_url))
             
             # Download the files to generate hash, as official website does not provide one
             with urllib.request.urlopen(download_url) as dist_package:
