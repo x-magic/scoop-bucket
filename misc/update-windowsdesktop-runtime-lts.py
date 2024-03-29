@@ -3,8 +3,8 @@ import os
 import re
 import urllib.request
 
-version_check_url = 'https://dotnetcli.blob.core.windows.net/dotnet/WindowsDesktop/Current/latest.version'
-manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'windowsdesktop-runtime-{arch}.json')
+version_check_url = 'https://dotnetcli.azureedge.net/dotnet/WindowsDesktop/LTS/latest.version'
+manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'windowsdesktop-runtime-lts-{arch}.json')
 archs = ['x86', 'x64']
 
 print("=====> windowsdesktop-runtime")
@@ -37,7 +37,7 @@ for arch in archs:
                 target.close()
 
                 # Write commit messages
-                message = "windowsdesktop-runtime{0}: Update to version {1}".format(arch, version_current)
+                message = "windowsdesktop-runtime-lts-{0}: Update to version {1}".format(arch, version_current)
                 commit_message = open('.commit_messages', 'a')
                 commit_message.write(message + "\n")
                 commit_message.close()

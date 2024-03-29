@@ -7,6 +7,8 @@ version_check_url = 'https://dotnet.microsoft.com/download/dotnet/3.1'
 manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'windowsdesktop-runtime-lts-3.1.x-{arch}.json')
 archs = ['x86', 'x64']
 
+print("=====> windowsdesktop-runtime-lts-3.1.x")
+
 for arch in archs:
     arch_manifest_path = manifest_path.format(arch=arch)
     manifest = json.load(open(arch_manifest_path, mode='r'))
@@ -33,7 +35,7 @@ for arch in archs:
                 target = open(arch_manifest_path, "w")
                 target.write(json.dumps(manifest, indent=4, sort_keys=False) + "\n")
                 target.close()
-                
+
                 # Write commit messages
                 message = "windowsdesktop-runtime-lts-3.1.x-{0}: Update to version {1}".format(arch, version_current)
                 commit_message = open('.commit_messages', 'a')
