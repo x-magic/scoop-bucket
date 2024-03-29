@@ -9,11 +9,11 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Setup Python Environment
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - name: Execute update script
@@ -23,7 +23,7 @@ jobs:
             done
       - name: "Check if there is any change"
         id: check_files
-        uses: andstor/file-existence-action@v1
+        uses: andstor/file-existence-action@v3
         with:
           files: ".commit_messages"
       - name: Commit changes (if there is any)
