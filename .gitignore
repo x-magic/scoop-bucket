@@ -1,6 +1,7 @@
 *~
 ._*
 /checkver*
-misc/.idea
+.commit_messages
 misc/.commit_messages
 .idea
+misc/.idea

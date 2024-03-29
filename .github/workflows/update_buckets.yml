@@ -17,18 +17,21 @@ jobs:
         with:
           fetch-depth: 1
       - name: Execute update script
-        run: python misc/updateall.py
+        run: |
+            for updater in misc/update-*.py; do
+                python $updater
+            done
       - name: "Check if there is any change"
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "misc/.commit_messages"
+          files: ".commit_messages"
       - name: Commit changes (if there is any)
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
           git config --global user.name actions-user
           git config --global user.email "actions@github.com"
-          git commit -a -F misc/.commit_messages
+          git commit -a -F .commit_messages
           git push
         env:
           REPO_KEY: ${{secrets.GITHUB_TOKEN}}
