@@ -9,6 +9,8 @@ shim_template_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '
 upstream = "https://raw.githubusercontent.com/ScoopInstaller/Main/master/bucket/busybox.json"
 additional_description = ". This is a standalone version which will not create aliases. Please install busybox-<command> to add desired aliases. "
 
+print("=====> busybox")
+
 # Read current version from existing manifest
 version_existing = json.load(open(manifest_path, mode='r'))['version']
 
@@ -27,7 +29,7 @@ with urllib.request.urlopen(upstream) as url:
         target = open(manifest_path, 'w')
         target.write(json.dumps(data, indent=4, sort_keys=False) + "\n")
         target.close()
-                
+
         # Write commit messages
         message = "busybox-standalone: Update to version {0}".format(version_current)
         commit_message = open('.commit_messages', 'a')
