@@ -7,7 +7,7 @@ version_check_url = 'https://dotnet.microsoft.com/download/dotnet/5.0'
 manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'windowsdesktop-runtime-5.0.x-{arch}.json')
 archs = ['x86', 'x64']
 
-print("=====> windowsdesktop-runtime-lts-5.0.x")
+print("=====> windowsdesktop-runtime-5.0.x")
 
 for arch in archs:
     arch_manifest_path = manifest_path.format(arch=arch)

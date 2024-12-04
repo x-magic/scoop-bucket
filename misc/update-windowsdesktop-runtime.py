@@ -37,7 +37,7 @@ for arch in archs:
                 target.close()
 
                 # Write commit messages
-                message = "windowsdesktop-runtime{0}: Update to version {1}".format(arch, version_current)
+                message = "windowsdesktop-runtime-{0}: Update to version {1}".format(arch, version_current)
                 commit_message = open('.commit_messages', 'a')
                 commit_message.write(message + "\n")
                 commit_message.close()

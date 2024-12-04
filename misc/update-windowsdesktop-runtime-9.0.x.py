@@ -3,18 +3,18 @@ import os
 import re
 import urllib.request
 
-version_check_url = 'https://dotnetcli.azureedge.net/dotnet/WindowsDesktop/LTS/latest.version'
-manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'windowsdesktop-runtime-lts-{arch}.json')
+version_check_url = 'https://dotnet.microsoft.com/download/dotnet/9.0'
+manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'windowsdesktop-runtime-9.0.x-{arch}.json')
 archs = ['x86', 'x64']
 
-print("=====> windowsdesktop-runtime-lts")
+print("=====> windowsdesktop-runtime-9.0.x")
 
 for arch in archs:
     arch_manifest_path = manifest_path.format(arch=arch)
     manifest = json.load(open(arch_manifest_path, mode='r'))
 
     with urllib.request.urlopen(version_check_url) as url:
-        version_current = re.findall('([\\d.]+)', url.read().decode())[0]
+        version_current = re.findall('data-target="#version_0">([\\d.]+)</button>', url.read().decode())[0]
         version_existing = manifest['version']
 
         if version_current != version_existing:
@@ -37,7 +37,7 @@ for arch in archs:
                 target.close()
 
                 # Write commit messages
-                message = "windowsdesktop-runtime-lts-{0}: Update to version {1}".format(arch, version_current)
+                message = "windowsdesktop-runtime-9.0.x-{0}: Update to version {1}".format(arch, version_current)
                 commit_message = open('.commit_messages', 'a')
                 commit_message.write(message + "\n")
                 commit_message.close()
