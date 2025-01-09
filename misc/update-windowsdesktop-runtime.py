@@ -3,7 +3,7 @@ import os
 import re
 import urllib.request
 
-version_check_url = 'https://dotnetcli.blob.core.windows.net/dotnet/WindowsDesktop/Current/latest.version'
+version_check_url = 'https://dotnetcli.blob.core.windows.net/dotnet/WindowsDesktop/9.0/latest.version'
 manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'windowsdesktop-runtime-{arch}.json')
 archs = ['x86', 'x64']
 
