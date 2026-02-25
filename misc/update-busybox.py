@@ -6,8 +6,9 @@ import urllib.request
 bucket_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket')
 manifest_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'bucket', 'busybox-standalone.json')
 shim_template_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'busybox_shim_template.json')
+shim_list_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'busybox_shim_list.json')
 upstream = "https://raw.githubusercontent.com/ScoopInstaller/Main/master/bucket/busybox.json"
-additional_description = ". This is a standalone version which will not create aliases. Please install busybox-<command> to add desired aliases. "
+additional_description = ". This is a standalone version which will not create aliases (shims). Please install busybox-<command> to add desired aliases (shims). "
 
 print("=====> busybox")
 
@@ -17,7 +18,10 @@ version_existing = json.load(open(manifest_path, mode='r'))['version']
 with urllib.request.urlopen(upstream) as url:
     data = json.loads(url.read().decode())
     version_current = data['version']
-    busybox_bins = data['bin']
+
+    # Read busybox shims from the json file (upstream no longer list shims in manifest)
+    shim_list = json.loads(open(shim_list_path, 'r').read())
+    busybox_bins = shim_list['bin']
 
     if version_current != version_existing:
         print("New version {0} detected (current version {1}). Will update the manifest...".format(version_current, version_existing))
