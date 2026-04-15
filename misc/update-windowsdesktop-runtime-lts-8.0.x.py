@@ -14,7 +14,7 @@ for arch in archs:
     manifest = json.load(open(arch_manifest_path, mode='r'))
 
     with urllib.request.urlopen(version_check_url) as url:
-        version_current = re.findall('data-target="#version_0">([\\d.]+)</button>', url.read().decode())[0]
+        version_current = re.findall(pattern=r'data-target="#version_0">.*?(\d+.\d+.\d+).*?</button>', string=url.read().decode(), flags=re.S)[0]
         version_existing = manifest['version']
 
         if version_current != version_existing:
