@@ -2,6 +2,12 @@ name: Update all buckets
 on:
   schedule:
     - cron: 0 0 * * 3
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Why are you running this manually?'
+        required: false
+        default: 'Testing'
 jobs:
   update:
     name: Execute update scripts
