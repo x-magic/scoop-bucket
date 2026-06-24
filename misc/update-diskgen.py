@@ -52,5 +52,5 @@ try:
             commit_message.close()
         else:
             print("No new version detected. Will not update the manifest. ")
-except:
-    print("Update check failed. Likely due to failed to access diskgenius.cn.")
+except Exception as e:
+    print(f"Update check failed: {repr(e)}")
